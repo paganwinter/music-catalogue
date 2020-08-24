@@ -1,28 +1,3 @@
-// const fs = require('fs')
-
-// const baseDir = 'E:/MEDIA/MUSIC/ENGLISH/SINGLES'
-// let outer = fs.readdirSync(baseDir)
-
-// function isDir(path) {
-//   return fs.lstatSync(path).isDirectory()
-// }
-
-// console.log(outer)
-// for (let otr of outer) {
-//   if (isDir(baseDir + '/' + otr)) {
-//     console.log(`"${otr}",""`)
-//     let inner = fs.readdirSync(baseDir + '/' + otr)
-//     for (let inr of inner) {
-//       // if (isDir(baseDir + '/' + otr + '/' + inr)) {
-//       //   console.log(`"","${inr}"`)
-//       // }
-//       console.log(`"","${inr}"`)
-//     }
-//   } else {
-//     console.log(otr)
-//   }
-// }
-
 /////////////////////////////////////
 
 // const dirTree = require('directory-tree');
@@ -31,48 +6,10 @@
 
 ///////////////////////////////////
 
-// const Handlebars = require('handlebars')
-// const albums = fs.readdirSync('')
-// let data = { albums }
-// const source = fs.readFileSync('./index.tpl.html', 'utf-8');
-// const template = Handlebars.compile(source);
-// const result = template(data);
-// fs.writeFileSync('./index.html', result);
-
-//////////////////////////////////////
-
 const fs = require('fs')
-const path = require('path');
+const path = require('path')
 
-// const walk_ = function(dir, done) {
-//   var results = [];
-//   fs.readdir(dir, function(err, list) {
-//     if (err) return done(err);
-//     var pending = list.length;
-//     if (!pending) return done(null, results);
-//     list.forEach(function(file) {
-//       file = path.resolve(dir, file);
-//       fs.stat(file, function(err, stat) {
-//         if (stat && stat.isDirectory()) {
-//           walk(file, function(err, res) {
-//             results = results.concat(res);
-//             if (!--pending) done(null, results);
-//           });
-//         } else {
-//           results.push(file);
-//           if (!--pending) done(null, results);
-//         }
-//       });
-//     });
-//   });
-// };
-// walk_('C:/VAID/MEDIA/MUSIC', function(err, results) {
-//   if (err) throw err;
-//   console.log(results);
-// });
-
-
-const baseDir = 'C:/VAID/MEDIA/MUSIC'
+const baseDir = process.argv[2]
 function isDir(path) {
   return fs.lstatSync(path).isDirectory()
 }
